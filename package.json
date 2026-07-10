@@ -1,0 +1,7 @@
+{
+  "name": "summer",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix src/server run dev"
+  }
+}
