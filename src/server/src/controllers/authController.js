@@ -6,16 +6,20 @@ import {
 } from '../services/authService.js'
 
 const setAuthCookies = (res, tokens) => {
+	const secure = process.env.NODE_ENV === 'production'
+
 	res.cookie('refreshToken', tokens.refreshToken, {
 		maxAge: 30 * 24 * 60 * 60 * 1000,
 		httpOnly: true,
-		sameSite: 'lax'
+		sameSite: 'lax',
+		secure
 	})
 
 	res.cookie('accessToken', tokens.accessToken, {
 		maxAge: 15 * 60 * 1000,
 		httpOnly: true,
-		sameSite: 'lax'
+		sameSite: 'lax',
+		secure
 	})
 }
 
